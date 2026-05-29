@@ -16,11 +16,10 @@
 
 body{
     overflow:hidden;
-    background:black;
+    background:black; /* 動画が読み込まれるまでのベース色 */
 }
 
 /* BACKGROUND VIDEO */
-
 #bg-video{
     position:fixed;
     right:0;
@@ -32,22 +31,24 @@ body{
     width:auto;
     height:auto;
 
-    z-index:-10;
+    /* 重なり順：一番奥に配置(1) */
+    z-index: 1;
 
     object-fit:cover;
+    display: block;
 }
 
 /* DARK OVERLAY */
-
 .overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.45);
-    z-index:-5;
+    
+    /* 重なり順：動画のすぐ上(2) */
+    z-index: 2;
 }
 
 /* CENTER */
-
 .center{
     width:100%;
     height:100vh;
@@ -55,10 +56,13 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    
+    /* 重なり順：一番手前(3) にしてカードを見せる */
+    position: relative;
+    z-index: 3;
 }
 
 /* CARD */
-
 .card{
     width:450px;
 
@@ -69,6 +73,7 @@ body{
     background:rgba(255,255,255,0.08);
 
     backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px); /* Safari対策 */
 
     border:1px solid rgba(255,255,255,0.12);
 
@@ -78,14 +83,12 @@ body{
 }
 
 /* LOGO */
-
 .logo{
     width:140px;
     margin-bottom:30px;
 }
 
 /* SOCIAL */
-
 .social{
     margin-top:18px;
 
@@ -132,6 +135,11 @@ body{
     border-radius:12px;
 
     background:#7b2fff;
+    transition: background 0.2s;
+}
+
+.btn:hover{
+    background:#661ee0;
 }
 
 .footer{
@@ -144,9 +152,8 @@ body{
 </head>
 <body>
 
-<!-- VIDEO -->
-<video autoplay muted loop playsinline id="bg-video">
-    <source src="video.mp3" type="video/mp3">
+<video autoplay muted loop playsinline preload="auto" id="bg-video">
+    <source src="https://proswaip.xyz/video.mp4" type="video/mp4">
 </video>
 
 <div class="overlay"></div>
@@ -157,7 +164,6 @@ body{
 
         <img src="logo.png" class="logo">
 
-        <!-- DISCORD -->
         <div class="social">
 
             <div class="left">
@@ -165,19 +171,18 @@ body{
 
                 <div class="text">
                     <div class="title">Discord</div>
-                    <div class="sub">https://discord.gg/proswipe</div>
+                    <div class="sub">discord.gg/proswipe</div>
                 </div>
             </div>
 
             <a href="https://discord.gg/proswipe"
                target="_blank"
                class="btn">
-               Join
+                Join
             </a>
 
         </div>
 
-        <!-- TIKTOK -->
         <div class="social">
 
             <div class="left">
@@ -192,12 +197,11 @@ body{
             <a href="https://www.tiktok.com/@proswipe_official"
                target="_blank"
                class="btn">
-               Open
+                Open
             </a>
 
         </div>
 
-        <!-- YOUTUBE -->
         <div class="social">
 
             <div class="left">
@@ -212,7 +216,7 @@ body{
             <a href="https://www.youtube.com/@proswipe_software"
                target="_blank"
                class="btn">
-               Watch
+                Watch
             </a>
 
         </div>
