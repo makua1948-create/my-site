@@ -16,10 +16,9 @@
 
 body{
     overflow:hidden;
-    background:black; /* 動画が読み込まれるまでのベース色 */
+    background:black; 
 }
 
-/* BACKGROUND VIDEO */
 #bg-video{
     position:fixed;
     right:0;
@@ -31,24 +30,20 @@ body{
     width:auto;
     height:auto;
 
-    /* 重なり順：一番奥に配置(1) */
     z-index: 1;
 
     object-fit:cover;
     display: block;
 }
 
-/* DARK OVERLAY */
 .overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.45);
     
-    /* 重なり順：動画のすぐ上(2) */
     z-index: 2;
 }
 
-/* CENTER */
 .center{
     width:100%;
     height:100vh;
@@ -57,12 +52,10 @@ body{
     justify-content:center;
     align-items:center;
     
-    /* 重なり順：一番手前(3) にしてカードを見せる */
     position: relative;
     z-index: 3;
 }
 
-/* CARD */
 .card{
     width:450px;
 
@@ -73,7 +66,7 @@ body{
     background:rgba(255,255,255,0.08);
 
     backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px); /* Safari対策 */
+    -webkit-backdrop-filter:blur(20px); 
 
     border:1px solid rgba(255,255,255,0.12);
 
@@ -82,13 +75,11 @@ body{
     text-align:center;
 }
 
-/* LOGO */
 .logo{
     width:140px;
     margin-bottom:30px;
 }
 
-/* SOCIAL */
 .social{
     margin-top:18px;
 
@@ -171,7 +162,7 @@ body{
 
                 <div class="text">
                     <div class="title">Discord</div>
-                    <div class="sub">discord.gg/proswipe</div>
+                    <div class="sub">https://discord.gg/FxN2ZC8waN</div>
                 </div>
             </div>
 
